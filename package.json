@@ -1,0 +1,17 @@
+{
+  "name": "observify",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "repository": "https://github.com/hereisnaman/observify.git",
+  "author": "Naman Kumar <naman@outlook.in>",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "babel-cli": "^7.0.0-beta.3",
+    "babel-core": "^7.0.0-beta.3",
+    "babel-preset-env": "2.0.0-alpha.20"
+  }
+}
