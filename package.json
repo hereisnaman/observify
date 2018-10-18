@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src --out-dir dist",
+    "watch": "nodemon --watch src --exec yarn build",
     "format": "prettier --write \"src/**/*.{js,json}\"",
     "prepublish": "npm run build",
     "precommit": "lint-staged"
@@ -14,9 +15,11 @@
   "devDependencies": {
     "babel-cli": "^7.0.0-beta.3",
     "babel-core": "^7.0.0-beta.3",
+    "babel-node": "^7.0.0-beta.3",
     "babel-preset-env": "2.0.0-alpha.20",
     "husky": "^1.1.2",
     "lint-staged": "^7.3.0",
+    "nodemon": "^1.18.4",
     "prettier": "^1.14.3"
   }
 }
