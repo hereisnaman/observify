@@ -1,5 +1,7 @@
+import mappedDepProps from '../mappedDepProps';
+
 export const getTrap = dep => (target, key, context) => {
-  if (['_subscribe', '_unsubscribe'].includes(key)) {
+  if (mappedDepProps.includes(key)) {
     return dep[key.substring(1)];
   }
 
