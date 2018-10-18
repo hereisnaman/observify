@@ -1,4 +1,4 @@
-export class Dependency {
+export default class Dependency {
   constructor(target, subscribers) {
     // initialize
     this.target = target;
@@ -14,10 +14,6 @@ export class Dependency {
   };
 
   notify = () => {
-    this.subscribers.forEach(subscriber =>
-      setTimeout(() => {
-        subscriber(this.target);
-      }, 0),
-    );
+    this.subscribers.forEach(subscriber => subscriber(this._observable));
   };
 }
