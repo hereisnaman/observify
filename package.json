@@ -22,5 +22,8 @@
     "lint-staged": "^7.3.0",
     "nodemon": "^1.18.4",
     "prettier": "^1.14.3"
+  },
+  "dependencies": {
+    "deep-equal": "^1.0.1"
   }
 }

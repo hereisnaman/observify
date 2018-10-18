@@ -14,6 +14,10 @@ export class Dependency {
   };
 
   notify = () => {
-    this.subscribers.forEach(subscriber => subscriber(this.target));
+    this.subscribers.forEach(subscriber =>
+      setTimeout(() => {
+        subscriber(this.target);
+      }, 0),
+    );
   };
 }
