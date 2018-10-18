@@ -1,6 +1,6 @@
-export const setTrap = dep => (target, key, value) => {
-  Reflect.set(target, key, value);
+export const setTrap = (dep, key, value) => {
+  Reflect.set(dep.target, key, value);
 
-  dep.notify(target);
+  dep.notify();
   return true;
 };

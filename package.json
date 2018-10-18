@@ -16,6 +16,7 @@
     "babel-cli": "^7.0.0-beta.3",
     "babel-core": "^7.0.0-beta.3",
     "babel-node": "^7.0.0-beta.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "2.0.0-alpha.20",
     "husky": "^1.1.2",
     "lint-staged": "^7.3.0",
