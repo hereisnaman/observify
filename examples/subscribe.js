@@ -1,40 +1,22 @@
-const observify = require('../dist/');
-
-let message = 'loading';
+import { observify } from '../dist/';
 
 const pub = observify({
   loading: true,
 });
 
-const messageUpdater = state => {
-  if (state.loading) {
-    message = 'loading';
-  } else {
-    message = 'hello world';
-  }
-};
-
 const logger = state => {
-  console.log('loading: ', state.loading);
+  console.log('updated state: ', state);
 };
 
-pub._subscribe(messageUpdater);
 pub._subscribe(logger);
 
-console.log('message: ', message); // message: loading
 pub.loading = false;
-pub._unsubscribe(messageUpdater);
+pub._unsubscribe(logger);
 
-console.log('message: ', message); // message: hello world
 pub.loading = true;
-console.log('message: ', message); // message: hello world
 
 /*
   output:
 
-    message:  loading
-    loading:  false
-    message:  hello world
-    loading:  true
-    message:  hello world
+  updated state:  { loading: false }
 */
