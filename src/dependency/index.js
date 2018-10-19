@@ -16,4 +16,14 @@ export default class Dependency {
   notify = () => {
     this.subscribers.forEach(subscriber => subscriber(this._observable));
   };
+
+  _dependencySubscriber = () => this.notify();
+
+  addDependency = observable => {
+    observable._subscribe(this._dependencySubscriber);
+  };
+
+  removeDependency = observable => {
+    observable._unsubscribe(this._dependencySubscriber);
+  };
 }

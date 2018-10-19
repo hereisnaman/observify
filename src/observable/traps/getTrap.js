@@ -8,7 +8,7 @@ export const getTrap = dep => (target, key, context) => {
   let property = Reflect.get(target, key, context);
 
   if (typeof property === 'function') {
-    property = property.bind(target);
+    property = property.bind(dep._observable);
   }
 
   return property;
