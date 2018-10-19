@@ -1,8 +1,9 @@
-import { getTrap, setTrap, definePropertyTrap } from './traps/';
+import { getTrap, setTrap, definePropertyTrap, deletePropertyTrap } from './traps/';
 
 export default (target, dep) =>
   new Proxy(target, {
     get: getTrap(dep),
-    set: setTrap(dep),
     defineProperty: definePropertyTrap(dep),
+    deleteProperty: deletePropertyTrap(dep),
+    set: setTrap(dep),
   });
