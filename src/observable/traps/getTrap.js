@@ -5,5 +5,11 @@ export const getTrap = dep => (target, key, context) => {
     return dep[key.substring(1)];
   }
 
-  return Reflect.get(target, key, context);
+  let property = Reflect.get(target, key, context);
+
+  if (typeof property === 'function') {
+    property = property.bind(target);
+  }
+
+  return property;
 };
