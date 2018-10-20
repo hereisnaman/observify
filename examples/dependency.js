@@ -29,3 +29,8 @@ store._subscribe(logger);
 console.log('Initial state: ', store);
 store.auth.authenticated = true;
 store.ui.loading = false;
+/* Output:
+ * Initial state:  { ui: { loading: true }, auth: { authenticated: false } }
+ * Updated state:  { ui: { loading: true }, auth: { authenticated: true } }
+ * Updated state:  { ui: { loading: false }, auth: { authenticated: true }
+ */
