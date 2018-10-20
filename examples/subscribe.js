@@ -1,22 +1,28 @@
 import { observify } from '../dist/';
 
-const pub = observify({
+const uiState = observify({
   loading: true,
 });
 
-const logger = state => {
-  console.log('updated state: ', state);
-};
+uiState._subscribe(state => {
+  console.log('UI updated: ', state);
+});
 
-pub._subscribe(logger);
+const authState = observify({
+  authenticated: false,
+});
 
-pub.loading = false;
-pub._unsubscribe(logger);
+authState._subscribe(state => {
+  if (state.authenticated) {
+    console.log('Authenticated');
+  }
 
-pub.loading = true;
+  uiState.loading = !state.authenticated;
+});
 
-/*
-  output:
+authState.authenticated = true;
 
-  updated state:  { loading: false }
-*/
+/* Output:
+ * Authenticated
+ * UI updated:  { loading: false }
+ */
